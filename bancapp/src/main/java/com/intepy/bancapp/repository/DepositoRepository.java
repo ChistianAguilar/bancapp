@@ -1,7 +1,7 @@
-package com.intepy.bancapp.com.intepy.bancapp.bancapp.repository;
+package com.intepy.bancapp.repository;
 
 import  org.springframework.data.jpa.repository.JpaRepository;
-import com.intepy.bancapp.com.intepy.bancapp.bancapp.model.Deposito;
+import com.intepy.bancapp.entity.Deposito;
 public interface DepositoRepository extends JpaRepository<Deposito, Long> {
 
 }

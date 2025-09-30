@@ -1,4 +1,4 @@
-package com.intepy.bancapp.bancapp.entity;
+package com.intepy.bancapp.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -21,7 +21,7 @@ public class Deposito {
 
     @ManyToOne
     @JoinColumn(name = "origen_id")
-    private OrigenDeposito origenDeposito;
+    private OrigenDeposito origen;
 
 
     // Constructor vacío requerido por JPA
@@ -46,8 +46,8 @@ public class Deposito {
    }
 
    // Para Origen
-    public OrigenDeposito getOrigenDeposito(){
-     return origenDeposito;
+    public OrigenDeposito getOrigen(){
+     return origen;
     }
 
     // Setters
@@ -65,8 +65,8 @@ public class Deposito {
     }
 
     // Para Origen
-    public void setOrigenDeposito(OrigenDeposito origenDeposito){
-        this.origenDeposito = origenDeposito;
+    public void setOrigenDeposito(OrigenDeposito origen){
+        this.origen= origen;
     }
 
     

@@ -1,8 +1,8 @@
-package com.intepy.bancapp.com.intepy.bancapp.bancapp.repository;
+package com.intepy.bancapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.intepy.bancapp.com.intepy.bancapp.bancapp.model.Usuario;
+import com.intepy.bancapp.entity.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 }

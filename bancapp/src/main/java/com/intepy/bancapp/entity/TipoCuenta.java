@@ -1,4 +1,4 @@
-package com.intepy.bancapp.bancapp.entity;
+package com.intepy.bancapp.entity;
 
 import java.util.List;
 

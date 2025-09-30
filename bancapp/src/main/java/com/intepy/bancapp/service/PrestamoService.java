@@ -1,6 +1,11 @@
 package com.intepy.bancapp.service;
 
-import jav.util.List;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.intepy.bancapp.repository.PrestamoRepository;
+import com.intepy.bancapp.entity.Prestamo;
+import org.springframework.stereotype.Service; 
 
 @Service
 public class PrestamoService {
@@ -8,7 +13,7 @@ public class PrestamoService {
     @Autowired
     private PrestamoRepository prestamoRepository;
 
-    public List<Prestamo> listaPrestamo(){
+    public List<Prestamo> listarPrestamo(){
         return prestamoRepository.findAll();
     }
 
@@ -17,19 +22,19 @@ public class PrestamoService {
     }
 
     public Prestamo guardarPrestamo(Prestamo prestamo){
-        return prestamoRepository.findById(prestamo);
+        return prestamoRepository.save(prestamo);
     }
 
     public Prestamo actualizarPrestamo(Long id, Prestamo prestamoActualizado){
         return prestamoRepository.findById(id)
             .map(prestamo -> {
                 prestamo.setMonto(prestamoActualizado.getMonto());
-                prestamo.setInteres(prestamoActualizado.getInteres());
+                prestamo.setEstado(prestamoActualizado.getEstado());
                 return prestamoRepository.save(prestamo);
             }).orElseThrow(() -> new RuntimeException("Prestamo no encontrado con id: " + id));
     }
 
-    public void eliminarCuenta(Long id){
+    public void eliminarPrestamo(Long id){
         prestamoRepository.deleteById(id);
     }
 }

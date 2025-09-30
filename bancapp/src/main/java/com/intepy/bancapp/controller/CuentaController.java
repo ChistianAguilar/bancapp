@@ -1,11 +1,11 @@
 package com.intepy.bancapp.controller;
 
-import com.intepy.bancapp.entity.Usuario;
-import com.intepy.bancapp.service.UsuarioService;
+import com.intepy.bancapp.service.CuentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import com.intepy.bancapp.entity.Cuenta;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,43 +17,43 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.HttpStatus;
+
 @RestController
-@RequestMapping("/api/usuarios")
-public class UsuarioController {
+@RequestMapping("/api/cuentas")
+public class CuentaController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private CuentaService cuentaService;
 
     @GetMapping
-    public List<Usuario> obtenerUsuarios(){
-        return usuarioService.listarUsuarios();
+    public List<Cuenta> listarCuentas(){
+        return cuentaService.listaCentas();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> obtenerUsuario(@PathVariable Long id){
-        return usuarioService.obtenerUsuarioPorId(id)
+    public ResponseEntity<Cuenta> obtenerCuenta(@PathVariable Long id){
+        return cuentaService.obtenerCuentaPorId(id)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Usuario crearUsuario(@RequestBody Usuario usuario){
-        return usuarioService.guardarUsuario(usuario);
+    public Cuenta crearCyebta(@RequestBody Cuenta cuenta){
+        return cuentaService.guardarCuenta(cuenta);
     }
-
-    @PostMapping("/{id}")
-    public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario)
-    {
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<Cuenta> actualizarCuenta(@PathVariable Long id, @RequestBody Cuenta centa){
         try {
-            return ResponseEntity.ok(usuarioService.actualizarUsuario(id, usuario));
-        } catch (RuntimeException e) {
+            return ResponseEntity.ok(cuentaService.actualizarCuenta(id, null));
+        } catch (RuntimeException e){
             return ResponseEntity.notFound().build();
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id){
-        usuarioService.eliminarUsuario(id);
+    public ResponseEntity<Void> eliminarCuenta(@PathVariable Long id){
+        cuentaService.eliminarCuenta(id);
         return ResponseEntity.noContent().build();
     }
 }

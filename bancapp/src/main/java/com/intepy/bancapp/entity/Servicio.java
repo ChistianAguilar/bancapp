@@ -1,8 +1,8 @@
-package com.intepy.bancapp.bancapp.entity;
+package com.intepy.bancapp.entity;
 
 import java.util.List;
 
-import jakarta.annotation.Generated;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;

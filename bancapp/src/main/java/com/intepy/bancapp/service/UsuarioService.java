@@ -1,10 +1,13 @@
 package com.intepy.bancapp.service;
 import java.util.Optional;
-import java.utli.List;
+import java.util.List;
 
 import com.intepy.bancapp.entity.Usuario;
 import com.intepy.bancapp.repository.UsuarioRepository;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+// import org.springframework.transaction.annotation.Transactional;
+// import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioService {
@@ -17,7 +20,7 @@ public class UsuarioService {
     }
 
     public Optional<Usuario> obtenerUsuarioPorId(Long id){
-        return usuarioRepositoruy.findAllById(id);
+        return usuarioRepository.findById(id);
     }
 
     public Usuario guardarUsuario(Usuario usuario){
@@ -34,7 +37,7 @@ public class UsuarioService {
     }
 
     public void eliminarUsuario(Long id) {
-        usuarioRepository.depositosById(id);
+        usuarioRepository.deleteById(id);
     }
 
 }

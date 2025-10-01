@@ -7,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.OneToMany;
-
+// hola mundo
 
 @Entity
 public class EstadoPrestamo {

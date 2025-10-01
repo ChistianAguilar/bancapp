@@ -1,35 +1,23 @@
 package com.intepy.bancapp.entity;
 
 import jakarta.persistence.*;
-// import jakarta.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "servicios")
-public class Servicio {
-    
+public class Servicios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false)
     private String nombre;
-    
-    @Column
     private String descripcion;
     
     @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL)
     private List<PagoServicio> pagos = new ArrayList<>();
     
     // Constructor vacío
-    public Servicio() {
-    }
-    
-    // Constructor con campos
-    public Servicio(String nombre, String descripcion) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+    public Servicios() {
     }
     
     // Getters y Setters

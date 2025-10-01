@@ -1,9 +1,10 @@
 package com.intepy.bancapp.entity;
 
-import jakarta.persistence. *; 
+import jakarta.persistence.*; 
 
 import java.util.List;
 import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonManagedReference; // Importa la anotación JsonManagedReference para manejar referencias circulares
 
 @Entity
 public class Usuario {
@@ -13,6 +14,7 @@ public class Usuario {
     private String nombre;
     private String email;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Cuenta> cuentas = new ArrayList<>();
 

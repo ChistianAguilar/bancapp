@@ -3,6 +3,7 @@ package com.intepy.bancapp.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference; // Importa la anotación JsonBackReference para manejar referencias circulares
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +22,7 @@ public class Cuenta {
     private String numeroCuenta;
     private Double saldo;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
